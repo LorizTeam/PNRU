@@ -11,3 +11,7 @@
     -webkit-transform: scale(.8);
     transform: scale(.8);
 }
+.container-center{
+	margin: 0 auto!important;
+	width: 95%!important;
+}
