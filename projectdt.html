@@ -11,26 +11,165 @@
         <link href="css/metro-icons.css" rel="stylesheet">
         <link href="css/metro-responsive.css" rel="stylesheet">
 		<link href="css/metro-schemes.css" rel="stylesheet">
+		<link href="css/docs.css" rel="stylesheet"> 
+	 
+	    <script src="js/metro.js"></script>
+	    <script src="js/docs.js"></script>
+	    <script src="js/prettify/run_prettify.js"></script>
+	    <script src="js/ga.js"></script>
+ 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  
 	</head>
 
 	<body>
 		 <div data-include="topmenu.html"></div>
-         <br>
-		 <div class="example" data-text="โครงการ">
+		 <br>
+		 <div class="example" data-text="รายรับ">
          <div class="grid">
-		  	<div class="row cells ali">
-		        <div class="cell"> </div>
-		        <div class="cell sub-leader align-center"> 
-		        	 โครงการ : อาคารเรือนไทย 
+		  	<div class="row cells4">
+		        <div class="cell"> 
+		        	กิจกรรม
+			        <div class="input-control text full-size">
+					    <select onchange="">
+					    	<option>-- โปรดเลือก --</option>
+					        <option>521800001 - อาคารเรือนไทย</option>
+					        <option>521800002 - กาสลอง</option>
+					        <option>521800003 - ถ่ายภาพพิมพ์บัตรและสื่อสารดิจตอล</option>
+					        <option>521800004 - โรงแรม</option>
+					        <option>521800005 - ศูนย์บริการ</option>
+					        <option>521800006 - สปา & ฟิตเนส</option>
+					        <option>521800007 - ศูนย์อาหารและร้านค้า</option> 
+					    </select>
+					</div>
+				</div>
+		        <div class="cell"> 
+		        		กิจกรรมย่อย
+					    <div class="input-control text full-size">
+                           <select onchange=""> 
+					        <option>01 - มกราคม</option>
+					        <option>02 - กุมภาพันธ์</option>
+					        <option>03 - มีนาคม</option>
+					        <option>04 - เมษายน</option>
+					        <option>05 - พฤษภาคม</option>
+					        <option>06 - มิถุนายน</option>
+					        <option>07 - กรกฎาคม</option> 
+					        <option>08 - สิงหาคม</option>
+					        <option>09 - กันยายน</option>
+					        <option>10 - ตุลาคม</option>
+					        <option>11 - พฤศจิกายน</option>
+					        <option>12 - ธันวาคม</option>
+					    </select> 
+                        </div> 
 				</div> 
+				<div class="cell">
+						รายการค่าใช้จ่าย
+					    <div class="input-control text full-size">
+                           <select onchange=""> 
+					        <option>2555</option>
+					        <option>2556</option>
+					        <option>2557</option>
+					        <option>2558</option>
+					        <option>2559</option>
+					        <option>2560</option>
+					        <option>2561</option>
+					        <option>2562</option>
+					        <option>2563</option>
+					        <option>2564</option>
+					        <option>2565</option>
+					        </select> 
+                        </div>
+				</div>
+				<div class="cell">จำนวนเงินของรายได้
+					<div class="input-control text full-size">
+						<input type="text " />
+						<button class="button danger"><span class="mif-minus"></span></button>
+					</div>
+					
+				</div>   
+				
+				
 		    </div>
+		    <hr>
+			<div class="align-center">				
+				<button class="button success "><span class="mif-plus"></span></button> 
+			</div>
 		 </div>  
-		</div>      
-  		<hr>
-            
-              
-        <script src="js/jquery-2.1.3.min.js"></script>
+		</div>
+		<div class="example" data-text="รายจ่าย">
+         <div class="grid">
+		  	<div class="row cells4">
+		        <div class="cell"> 
+		        	กิจกรรม
+			        <div class="input-control text full-size">
+					    <select onchange="">
+					    	<option>-- โปรดเลือก --</option>
+					        <option>521800001 - อาคารเรือนไทย</option>
+					        <option>521800002 - กาสลอง</option>
+					        <option>521800003 - ถ่ายภาพพิมพ์บัตรและสื่อสารดิจตอล</option>
+					        <option>521800004 - โรงแรม</option>
+					        <option>521800005 - ศูนย์บริการ</option>
+					        <option>521800006 - สปา & ฟิตเนส</option>
+					        <option>521800007 - ศูนย์อาหารและร้านค้า</option> 
+					    </select>
+					</div>
+				</div>
+		        <div class="cell"> 
+		        		กิจกรรมย่อย
+					    <div class="input-control text full-size">
+                           <select onchange=""> 
+					        <option>01 - มกราคม</option>
+					        <option>02 - กุมภาพันธ์</option>
+					        <option>03 - มีนาคม</option>
+					        <option>04 - เมษายน</option>
+					        <option>05 - พฤษภาคม</option>
+					        <option>06 - มิถุนายน</option>
+					        <option>07 - กรกฎาคม</option> 
+					        <option>08 - สิงหาคม</option>
+					        <option>09 - กันยายน</option>
+					        <option>10 - ตุลาคม</option>
+					        <option>11 - พฤศจิกายน</option>
+					        <option>12 - ธันวาคม</option>
+					    </select> 
+                        </div> 
+				</div> 
+				<div class="cell">
+						รายการค่าใช้จ่าย
+					    <div class="input-control text full-size">
+                           <select onchange=""> 
+					        <option>2555</option>
+					        <option>2556</option>
+					        <option>2557</option>
+					        <option>2558</option>
+					        <option>2559</option>
+					        <option>2560</option>
+					        <option>2561</option>
+					        <option>2562</option>
+					        <option>2563</option>
+					        <option>2564</option>
+					        <option>2565</option>
+					        </select> 
+                        </div>
+				</div>
+				<div class="cell">จำนวนเงินของรายได้
+					<div class="input-control text full-size">
+						<input type="text " />
+						<button class="button danger "><span class="mif-minus"></span></button>
+					</div>
+					
+				</div>   
+				
+				
+		    </div>
+		     <hr>
+			<div class="align-center">				
+				<button class="button success "><span class="mif-plus"></span></button> 
+			</div>
+		 </div>  
+		</div>
+		 
+        <script src="js/jquery-2.1.3.min.js"></script> 
         <script src="js/metro.js"></script>
         <script src="includehtml.js"></script>        
+    
 	</body>
 </html>
