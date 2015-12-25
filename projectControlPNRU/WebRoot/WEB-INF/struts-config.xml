@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans> 
+  	<form-bean name="projectMasterForm" type="pnru.form.ProjectMasterForm" />
+  </form-beans>
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings>
+  
+	<!--################################     Project Master     #################################-->
+   <action  
+   	  attribute="projectMasterForm"
+      input="/projectmaster.jsp"
+      name="projectMasterForm"
+   	  path="/projectMaster" scope="request"
+      type="pnru.action.ProjectMasterAction" >
+      <forward name="success" path="/projectmaster.jsp" /> 
+    </action>
+  <!--################################     Project Master     #################################-->
+  
+  </action-mappings>
+  <message-resources parameter="com.yourcompany.struts.ApplicationResources" />
+</struts-config>
+
