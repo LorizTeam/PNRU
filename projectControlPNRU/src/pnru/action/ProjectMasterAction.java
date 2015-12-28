@@ -25,8 +25,8 @@ public class ProjectMasterAction extends Action {
 		String projectName 	= new String(projectMasterForm.getProjectName().getBytes("ISO8859_1"), "utf-8");
  
 		String add 					= projectMasterForm.getAdd();
-	//	String update 				= materialForm.getUpdate();
-	//	String delete 				= materialForm.getDelete();
+		String update 				= projectMasterForm.getUpdate();
+		String delete 				= projectMasterForm.getDelete();
 		String alertMassage			= "";
 		 
 		String forwardText = null;
@@ -46,13 +46,14 @@ public class ProjectMasterAction extends Action {
 			forwardText = "success";
 		}
 		}
-	/*	if(update!=null){
-			if(!materialCode.equals("")&&!materialName.equals("")&&!amount.equals("")&&!unit.equals("")){
+		if(update!=null){
+	   		String projectCodeHD 	= projectMasterForm.getProjectCodeHD();
+			if(!projectCode.equals("")&&!projectName.equals("")&&!projectCodeHD.equals("")){
 		 
-				materialDB.UpdateMaterial(materialCode, materialName, amount, unit);
+				projectMasterDB.UpdateProjectMaster(projectCode, projectName, projectCodeHD);
 			
-				List materialList = materialDB.GetMaterialList("", "");
-				request.setAttribute("materialList", materialList);
+				List projectMasterList = projectMasterDB.GetProjectMasterList("", "");
+				request.setAttribute("projectMasterList", projectMasterList);
 			
 			forwardText = "success";
 		}else{
@@ -61,14 +62,14 @@ public class ProjectMasterAction extends Action {
 		}	
 		}
 		if(delete!=null){
-			materialDB.DeleteMaterial(materialCode);
+			projectMasterDB.DeleteProjectMaster(projectCode);
 			
-			List materialList = materialDB.GetMaterialList("", "");
-			request.setAttribute("materialList", materialList);
+			List projectMasterList = projectMasterDB.GetProjectMasterList("", "");
+			request.setAttribute("projectMasterList", projectMasterList);
 			
 			forwardText = "success";
 		}
-		*/
+	 
 		return mapping.findForward(forwardText);
 	}
 }

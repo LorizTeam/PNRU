@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>topmenu</title>
+		<title>Project Master</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
@@ -33,7 +33,7 @@
 	    <script src="js/prettify/run_prettify.js"></script>
 	    <script src="js/ga.js"></script>
  		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  
+ 		
 	</head>
 
 	<body>
@@ -46,17 +46,20 @@
 		        <div class="cell"> 
 		        	รหัสโครงการ
 			        <div class="input-control text full-size">
-					    <input type="text" name="projectCode">
+					    <input type="text" name="projectCode" id="projectcode" required>
 					</div>
+					<input type="hidden" name="projectCodeHD" id="projectcodehd">
 				</div>
 		        <div class="cell"> 
 		        	ชื่อโครงการ
 			        <div class="input-control text full-size">
-					    <input type="text" name="projectName">
+					    <input type="text" name="projectName" id="projectname" required>
 					</div>
 				</div> 
 				<div class="cell"><br>
-					  <button class="button success" type="submit" name="add">เพิ่ม</button> <button class="button success">แก้ไข</button> <button class="button success">ลบ</button>
+					  <button class="button success" type="submit" name="add">เพิ่ม</button> 
+					  <button class="button success" type="submit" name="update">แก้ไข</button> 
+					  <button class="button success" type="submit" name="delete">ลบ</button>
 				</div> 
 		    </div>
 		 </div>  
@@ -82,19 +85,17 @@
 				%>
                 <tr> 
                     <td align="center"><%=x%></td>
-                    <td align="center"><%=projMaster.getProjectCode()%></td>
-                    <td align="center"><%=projMaster.getProjectName()%></td>  
+                    <td class="tdprojectcode" align="center"><%=projMaster.getProjectCode()%></td>
+                    <td class="tdprojectname" align="center"><%=projMaster.getProjectName()%></td>  
                 </tr>	  
                 <% 	} %>
-                </tbody>
-                <%} else { %>
-                <tbody>
+                
+                <%} else { %> 
                 	<tr> 
                     <td colspan="3">ไม่พบข้อมูล</td> 
-                	</tr>
-                </tbody>
+                	</tr> 
                 <%	} %>
-                
+                </tbody>
             </table>
         </div> <!-- End of example table -->  
         </html:form>
@@ -103,11 +104,28 @@
         <script src="js/jquery.dataTables.min.js"></script>
         <script src="js/metro.js"></script>
         <script src="includehtml.js"></script>        
-   
-   		<script>
-        $(function(){
-            $('#table_project').dataTable();
-        });
-    	</script>
+    
+    <script type="text/javascript">
+  	$(document).ready(function() {
+    	var table = $('#table_project').DataTable(); 
+		$('#table_project tbody').on( 'click', 'tr', function () { 
+	        if ( $(this).hasClass('selected') ) {
+	            $(this).removeClass('selected');
+	            $("#projectcode").val("");
+	            $("#projectcodehd").val("");
+	            $("#projectname").val("");
+	        }
+	        else {
+	            table.$('tr.selected').removeClass('selected');
+	            $(this).addClass('selected');
+	            var $index = $(this).index();
+	            $("#projectcode").val($(".tdprojectcode").eq($index).text());
+	            $("#projectcodehd").val($(".tdprojectcode").eq($index).text());
+	            $("#projectname").val($(".tdprojectname").eq($index).text());
+	        }
+	    });
+	} );
+  </script>
+    
 	</body>
 </html>

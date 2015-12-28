@@ -4,10 +4,14 @@ import org.apache.struts.action.ActionForm;
 
 public class ProjectMasterForm extends ActionForm {
 
+	private String projectCodeHD;
 	private String projectCode; 
 	private String projectName;
+	
 	private String add;
- 
+	private String update;
+	private String delete;
+	
 	public ProjectMasterForm() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -18,6 +22,14 @@ public class ProjectMasterForm extends ActionForm {
 		this.projectCode = projectCode;
 		this.projectName = projectName;
 	}
+	
+	public String getProjectCodeHD() {
+		return projectCodeHD;
+	}
+
+	public void setProjectCodeHD(String projectCodeHD) {
+		this.projectCodeHD = projectCodeHD;
+	} 
 	
 	public String getProjectCode() {
 		return projectCode;
@@ -41,6 +53,22 @@ public class ProjectMasterForm extends ActionForm {
 
 	public void setAdd(String add) {
 		this.add = add;
-	} 
+	}
+
+	public String getUpdate() {
+		return update;
+	}
+
+	public void setUpdate(String update) {
+		this.update = update;
+	}
+
+	public String getDelete() {
+		return delete;
+	}
+
+	public void setDelete(String delete) {
+		this.delete = delete;
+	}
 	 
 }
