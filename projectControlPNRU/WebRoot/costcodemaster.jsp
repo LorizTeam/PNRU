@@ -14,12 +14,14 @@
 		<link href="css/metro-schemes.css" rel="stylesheet">
 		<link href="css/docs.css" rel="stylesheet"> 
 	 
+	 	<script src="js/jquery-2.1.3.min.js"></script>
 	    <script src="js/metro.js"></script>
 	    <script src="js/docs.js"></script>
 	    <script src="js/prettify/run_prettify.js"></script>
-	    <script src="js/ga.js"></script>
- 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  
+	    <script src="js/ga.js"></script> 
+        <script src="js/jquery.dataTables.min.js"></script> 
+        <script src="includehtml.js"></script>
+  		
 	</head>
 
 	<body>
@@ -76,12 +78,7 @@
                 </tbody>
             </table>
         </div> <!-- End of example table -->  
-        
-        <script src="js/jquery-2.1.3.min.js"></script>
-        <script src="js/jquery.dataTables.min.js"></script>
-        <script src="js/metro.js"></script>
-        <script src="includehtml.js"></script>        
-   
+         
    		<script>
         $(function(){
             $('#table_project').dataTable();

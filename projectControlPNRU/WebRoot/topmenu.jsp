@@ -25,7 +25,7 @@
                 <li class="divider"></li>
                 <li><a href="" class="dropdown-toggle">รายจ่าย</a>
                     <ul class="d-menu" data-role="dropdown">
-                        <li><a href="">ทำรายการจ่าย</a></li>
+                        <li><a href="requisition.jsp">ทำรายการจ่าย</a></li>
                         <li><a href="">รายละเอียดการจ่าย</a></li> 
                     </ul>
                 </li> 
