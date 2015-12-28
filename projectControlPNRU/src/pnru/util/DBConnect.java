@@ -16,7 +16,7 @@ public Connection getConnectMYSql()  throws Exception, IOException {
 			Class.forName ("com.mysql.jdbc.Driver");
 			//Class.forName ("org.gjt.mm.mysql.Driver");
 			String dbName = "pcpnru";
-			String hostname = "pcpnru.cd0t7eo3kb4o.ap-northeast-1.rds.amazonaws.com";
+			String hostname = "pcpnru.cre4njgwawzc.ap-southeast-1.rds.amazonaws.com";
 			String port = "3306";
 			String dbUserName = "root";
 			String dbPassword = "a654$w85s2S";
