@@ -5,6 +5,8 @@
   <data-sources />
   <form-beans> 
   	<form-bean name="projectMasterForm" type="pnru.form.ProjectMasterForm" />
+  	<form-bean name="subjobMasterForm" type="pnru.form.SubjobMasterForm" />
+  	<form-bean name="childSubjobMasterForm" type="pnru.form.ChildSubjobMasterForm" />
   </form-beans>
   <global-exceptions />
   <global-forwards />
@@ -18,8 +20,19 @@
    	  path="/projectMaster" scope="request"
       type="pnru.action.ProjectMasterAction" >
       <forward name="success" path="/projectmaster.jsp" /> 
-    </action>
-  <!--################################     Project Master     #################################-->
+   </action>
+  	<!--################################     Project Master     #################################-->
+  	
+  	<!--################################     Sub-job Master     #################################-->
+   <action  
+   	  attribute="subjobMasterForm"
+      input="/subjobmaster.jsp"
+      name="subjobMasterForm"
+   	  path="/subjobMaster" scope="request"
+      type="pnru.action.SubjobMasterAction" >
+      <forward name="success" path="/subjobmaster.jsp" /> 
+   </action>
+  	<!--################################     Sub-job Master     #################################-->
   
   </action-mappings>
   <message-resources parameter="com.yourcompany.struts.ApplicationResources" />

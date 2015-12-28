@@ -1,4 +1,18 @@
-<%@ page language="java" import="java.util.*,java.text.DecimalFormat" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*,java.text.DecimalFormat" pageEncoding="utf-8"%> 
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%> 
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@ page import="pnru.data.SubjobMasterDB" %>
+<%@ page import="pnru.form.SubjobMasterForm" %>
+<%@ page import="pnru.util.DBConnect" %>
+<%
+	List subjobMasterList1 = null;
+	if (request.getAttribute("SubjobMasterList") == null) {
+	SubjobMasterDB subjM = new SubjobMasterDB();
+	subjobMasterList1 = subjM.GetSubjobMasterList("","");
+	}else{
+	subjobMasterList1 = (List) request.getAttribute("subjobMasterList");
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -14,93 +28,100 @@
 		<link href="css/metro-schemes.css" rel="stylesheet">
 		<link href="css/docs.css" rel="stylesheet"> 
 	 
+		<script src="js/jquery-2.1.3.min.js"></script>
 	    <script src="js/metro.js"></script>
 	    <script src="js/docs.js"></script>
 	    <script src="js/prettify/run_prettify.js"></script>
-	    <script src="js/ga.js"></script>
- 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  
+	    <script src="js/ga.js"></script> 
+ 		<script src="js/jquery.dataTables.min.js"></script> 
+        <script src="includehtml.js"></script>    	    
+
 	</head>
 
 	<body>
 		 <div><%@include file="topmenu.jsp" %></div>
 		 <br>
+		 <html:form action="/subjobMaster" method="post">
 		 <div class="example" data-text="รายละเอียด">
          <div class="grid">
 		  	<div class="row cells4">
 		  		<div class="cell"> 
-		        	รหัส-ชื่อ โครงการ
+		        	รหัส-ชื่อ กิจกรรม
 			        <div class="input-control text full-size">
-					    <select onchange="">
-					    	<option>-- โปรดเลือก --</option>
-					        <option>521800001 - อาคารเรือนไทย</option>
-					        <option>521800002 - แหล่งเรียนรู้และวิจัย กาซะลองสปา</option>
-					        <option>521800003 - ถ่ายภาพพิมพ์บัตรและสื่อสารดิจตอล</option>
-					        <option>521800004 - โรงแรม</option>
-					        <option>521800005 - ศูนย์บริการ</option>
-					        <option>521800006 - สปา & ฟิตเนส</option>
-					        <option>521800007 - ศูนย์อาหารและร้านค้า</option> 
-					    </select>
+					    <input type="text" id="subjobcode" name="subjobCode">
 					</div>
-				</div>
-		        <div class="cell"> 
-		        	รหัสกิจกรรม
-			        <div class="input-control text full-size">
-					    <input type="text">
-					</div>
+					<input type="hidden" id="subjobcodehd" name="subjobCodeHD">
 				</div>
 		        <div class="cell"> 
 		        	ชื่อกิจกรรม
-			        <div class="input-control text full-size">
-					    <input type="text">
+			        <div class="input-control text full-size"> 
+					    <input type="text" id="subjobname" name="subjobName">
 					</div>
 				</div> 
 				<div class="cell"><br>
-					  <button class="button success">เพิ่ม</button> <button class="button success">แก้ไข</button> <button class="button success">ลบ</button> 
+					  <button class="button success" type="submit" name="add">เพิ่ม</button> 
+					  <button class="button success" type="submit" name="update">แก้ไข</button> 
+					  <button class="button success" type="submit" name="delete">ลบ</button>
 				</div> 
 		    </div>
 		 </div>  
 		</div>  
 		 
         <div class="example" data-text="รายการ">
-            <table id="table_project" class="dataTable striped border bordered" data-role="datatable" data-searching="true">
+            <table id="table_subjob" class="dataTable striped border bordered" data-role="datatable" data-searching="true">
                 <thead>
                 <tr> 
-                	<th>รหัส-ชื่อ โครงการ</th>
+                	<th>เลขที่</th>
                     <th>รหัส-กิจกรรม</th>
                     <th>ชื่อ-กิจกรรม</th> 
                 </tr>
                 </thead> 
                   
                 <tbody>
+                <%	if (subjobMasterList1 != null) {
+						List subjobMasterList = subjobMasterList1;
+						int x = 0;
+						for (Iterator iter = subjobMasterList.iterator(); iter.hasNext();) {
+						x++; 
+						SubjobMasterForm subjMaster = (SubjobMasterForm) iter.next();
+				%>
                 <tr> 
-                	<td>255800003 - แหล่งเรียนรู้และวิจัย กาซะลองสปา</td>
-                    <td>001</td>
-                    <td>โครงการแหล่งเรียนรู้และวิจัย กาซะลองสปา</td>   
-                </tr>	
-                <tr> 
-                	<td>255800003 - โครงการแหล่งเรียนรู้และวิจัย กาซะลองสปา</td>
-                    <td>002</td>
-                    <td>งบบุคลากร</td>  
-                </tr>
-                <tr> 
-                	<td>255800003 - โครงการแหล่งเรียนรู้และวิจัย กาซะลองสปา</td>
-                    <td>003</td>
-                    <td>หมวดค่าใช้สอย</td>  
-                </tr> 
+                    <td align="center"><%=x%></td>
+                    <td class="tdsubjobcode" align="center"><%=subjMaster.getSubjobCode()%></td>
+                    <td class="tdsubjobname" align="center"><%=subjMaster.getSubjobName()%></td>  
+                </tr>	  
+                <% 	} %>
+                
+                <%} else { %> 
+                	<tr> 
+                    <td colspan="3">ไม่พบข้อมูล</td> 
+                	</tr> 
+                <%	} %>
                 </tbody>
             </table>
         </div> <!-- End of example table -->  
-        
-        <script src="js/jquery-2.1.3.min.js"></script>
-        <script src="js/jquery.dataTables.min.js"></script>
-        <script src="js/metro.js"></script>
-        <script src="includehtml.js"></script>        
-   
+        </html:form>
+     
    		<script>
-        $(function(){
-            $('#table_project').dataTable();
-        });
+        $(document).ready(function() {
+    	var table = $('#table_subjob').DataTable(); 
+		$('#table_subjob tbody').on( 'click', 'tr', function () { 
+	        if ( $(this).hasClass('selected') ) {
+	            $(this).removeClass('selected');
+	            $("#subjobcode").val("");
+	            $("#subjobcodehd").val("");
+	            $("#subjobname").val("");
+	        }
+	        else {
+	            table.$('tr.selected').removeClass('selected');
+	            $(this).addClass('selected');
+	            var $index = $(this).index();
+	            $("#subjobcode").val($(".tdsubjobcode").eq($index).text());
+	            $("#subjobcodehd").val($(".tdsubjobcode").eq($index).text());
+	            $("#subjobname").val($(".tdsubjobname").eq($index).text());
+	        }
+	    });
+	} );
     	</script>
 	</body>
 </html>

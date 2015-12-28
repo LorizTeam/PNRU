@@ -12,11 +12,11 @@
 	}else{
 	projectMasterList1 = (List) request.getAttribute("projectMasterList");
 	}
- %>
+%>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Project Master</title>
+		<title>สร้างโครงการ</title>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
@@ -28,11 +28,13 @@
 		<link href="css/metro-schemes.css" rel="stylesheet">
 		<link href="css/docs.css" rel="stylesheet"> 
 	 
+	 	<script src="js/jquery-2.1.3.min.js"></script>
 	    <script src="js/metro.js"></script>
 	    <script src="js/docs.js"></script>
 	    <script src="js/prettify/run_prettify.js"></script>
-	    <script src="js/ga.js"></script>
- 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	    <script src="js/ga.js"></script> 
+ 		<script src="js/jquery.dataTables.min.js"></script> 
+        <script src="includehtml.js"></script>    
  		
 	</head>
 
@@ -99,12 +101,7 @@
             </table>
         </div> <!-- End of example table -->  
         </html:form>
-        
-        <script src="js/jquery-2.1.3.min.js"></script>
-        <script src="js/jquery.dataTables.min.js"></script>
-        <script src="js/metro.js"></script>
-        <script src="includehtml.js"></script>        
-    
+ 
     <script type="text/javascript">
   	$(document).ready(function() {
     	var table = $('#table_project').DataTable(); 
