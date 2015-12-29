@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>หน้าเบิกสินค้า</title>
+    <title>หน้าดูรายการเบิกสินค้า</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -49,10 +49,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="flex-grid">
 		  	<div class="row flex-just-center">
 		        <div class="cell colspan2 "> 
-		       	<h2 class="align-right">โครงการ&nbsp;</h2>
+		       	<h1 class="align-right">โครงการ &nbsp;</h1>
 		    	</div>
 		    	<div class="cell colspan5" > 
-		       		 <h3><small class="input-control full-size"> 
+		       		 <h2><small class="input-control full-size"> 
 		       		 <select onchange="">
 					    	<option>-- โปรดเลือก --</option>
 					        <option>521800001 - อาคารเรือนไทย</option>
@@ -63,35 +63,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					        <option>521800006 - สปา & ฟิตเนส</option>
 					        <option>521800007 - ศูนย์อาหารและร้านค้า</option> 
 					   </select>
-					   </small></h3>
+					   </small></h2>
 		    	</div>
 		    	<div class="cell colspan1"> 
-		    			<h2 class="align-right">เดือน&nbsp;</h2>  
-		    	</div>
-		    	<div class="cell colspan2">
-		    		<h3><small class="input-control full-size"> 
-					    <select onchange=""> 
-					        <option>01 - มกราคม</option>
-					        <option>02 - กุมภาพันธ์</option>
-					        <option>03 - มีนาคม</option>
-					        <option>04 - เมษายน</option>
-					        <option>05 - พฤษภาคม</option>
-					        <option>06 - มิถุนายน</option>
-					        <option>07 - กรกฎาคม</option> 
-					        <option>08 - สิงหาคม</option>
-					        <option>09 - กันยายน</option>
-					        <option>10 - ตุลาคม</option>
-					        <option>11 - พฤศจิกายน</option>
-					        <option>12 - ธันวาคม</option>
-					    </select>
-					</small>
-					</h3>
-		    	</div>
-		    	<div class="cell colspan1"> 
-		    			<h2 class="align-right">ปี&nbsp;</h2>  
+		    			<h1 class="align-right">ปี&nbsp;</h1>  
 		    	</div>
 		    	<div class="cell colspan1">
-		    		<h3><small class="input-control full-size"> 
+		    		<h2><small class="input-control full-size"> 
 					    <select onchange=""> 
 					        <option>2555</option>
 					        <option>2556</option>
@@ -106,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					        <option>2565</option>
 					        </select> 
 					</small>
-					</h3>
+					</h2>
 		    	</div>
 		    </div>
 	</div>
@@ -170,64 +148,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div> 
 	<hr/>
 	<div class="flex-grid">
-		  	<div class="row flex-just-left">
-		        <div class="cell colspan2"> 
-		       	<h2 align="right">จำนวน&nbsp;</h2> 	  
-		    	</div> 
-		    	<div class="cell colspan3">
-		    		<h3><small class="input-control full-size">
-					    <input type="text" id="subjobcode" name="subjobCode"> 
-					</small>
-					</h3>
-		    	</div> 
-		    	<div class="cell colspan1"> 
-		       	<h2 align="right">ราคา&nbsp;</h2> 	  
-		    	</div> 
-		    	<div class="cell colspan3">
-		    		<h3><small class="input-control full-size">
-					    <input type="text" id="subjobcode" name="subjobCode"> 
-					</small>
-					</h3>
-		    	</div> 
-		    	<div class="cell colspan3" align="right"><br>
-					  &nbsp;
-					  <button class="button success" type="submit" name="add">เพิ่ม</button> 
-					  <button class="button success" type="submit" name="update">แก้ไข</button> 
-					  <button class="button success" type="submit" name="delete">ลบ</button>
+		  	<div class="row flex-just-center"> 
+		    	<div class="cell colspan2" align="center"><br> 
+					  <a href="select_requisition-2.jsp"><button class="button success full-size" type="submit" name="add">ตกลง</button></a> 
 				</div> 
 		    </div>
-	</div> 
+	</div>
+	<br/> 
 	<hr/>
 	</div> <!-- End of example --> 
-	
-	<div class="example" data-text="รายการ">
-            <table id="table_project" class="dataTable striped border bordered" data-role="datatable" data-searching="true">
-                <thead>
-                <tr>  
-                	<th>เลขที่</th>
-                    <th>ชื่อโครงการ</th>
-                    <th>ชื่อกิจกรรม</th> 
-                    <th>ชื่อกิจกรรมย่อย</th>
-                    <th>รายละเอียด</th>
-                    <th>จำนวน</th>
-                    <th>ราคา</th>
-                    <th>ราคารวม</th>
-                </tr>
-                </thead> 
-                  
-                <tbody>
-                <tr>  
-                    <td>1</td>
-                    <td>กาซะลอสปา</td>
-                    <td>บุคลากร</td>
-                    <td>เงินเดือน</td>
-                    <td>1 คน x 13,200 บาท x 12</td>
-                    <td>3</td>
-                    <td>15,000 บาท</td>  
-                    <td>45,000 บาท</td> 
-                </tr>	 
-                </tbody>
-            </table>
-        </div> <!-- End of example table --> 
+	 
   </body>
 </html>
